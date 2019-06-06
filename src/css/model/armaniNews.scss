@@ -1,0 +1,199 @@
+@import '../../libs/boostrap/css/bootstrap.min.css';
+@import './footer.scss';
+@import './header.scss';
+
+
+$bordercolor:#cccccc;
+
+.top-pointer{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 45px;
+    padding-left: 38px;
+    font-size: 12px;
+    color: #c7b8b8;
+    line-height: 45px;
+    border-bottom: 1px solid $bordercolor;
+    a{
+        color: #c7b8b8;
+    }
+}
+.main-body{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 1618px;
+    .body-left{
+        width: 14.45%;
+        padding: 0 10px;
+        border-right: 1px solid $bordercolor;
+        height: 1552px;
+        float: left;
+        .beforeclick{
+            width: 100%;
+            height: 47px;
+            border-top: 1px solid $bordercolor;
+            li{
+            width: 100%;
+            height: 47px;
+            line-height: 47px;
+            font-size: 12px;
+            padding-left: 7px;
+            padding-right: 7px;
+            }
+            i{
+                font-size: 12px !important;
+                color: #cccccc;
+                float: right;
+            }
+        }
+        .newnav{
+            width: 100%;
+            height: 47px;
+            line-height: 47px;
+            font-size: 12px;
+            padding-left: 7px;
+            font-weight: bold;
+            border-bottom: 1px solid $bordercolor;
+        }
+        .food-find{
+            height: 128px;
+            width: 100%;
+            padding-top:16px; 
+            padding-left: 7px;
+            li{
+                width: 100%;
+                height: 24px;
+                line-height: 24px;
+                font-size: 12px;
+                a{
+                    border-bottom: 1px solid #666666;
+                    color: #666666;
+                }
+            }
+            li:nth-child(4){
+                line-height: 45px;
+            }
+        }
+    }
+    .body-right{
+        width: 85.55%;
+        height: 100%;
+        padding: 0 10px;
+        float: left;
+        .right-top{
+            height: 47px;
+            line-height: 47px;
+            padding: 0 7px;
+            border-bottom: 1px solid $bordercolor;
+            span:nth-child(1){
+                float: left;
+                font-size: 13px;
+            }
+            span:nth-child(2){
+                float: right;
+                font-size: 12px;
+                i{
+                    font-size: 12px !important;
+                }
+            }
+        }
+        #goods{
+            height: 1400px;
+            overflow: hidden;
+            .biga{
+                display: block;
+            }
+            div{
+                position: relative;
+                width: 25%;
+                height: 370px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                align-content: space-around;
+                margin: 45px 0;
+                float: left;
+                > .hot-sale{
+                    display: block;
+                    width: 26px;
+                    height: 23px;
+                    border-bottom: 1px solid;
+                    position: absolute;
+                    top:0;
+                    left: 0;
+                    line-height: 23px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+                > .imge{
+                    >img{
+                        width: 188px;
+                        height: 188px;
+                    }
+                }
+                > .hot-name{
+                    width: 100%;
+                    height: 48px;
+                    text-align: center;
+                    font-size: 12px;
+                    line-height: 48px;
+                }
+                > .hot-name-en{
+                    padding: 15px 0;
+                    text-align: center;
+                    font-size: 12px;
+                    height: 26px;
+                    line-height: 26px;
+                }
+                > .hot-colorcard{
+                    width: 100%;
+                    height: 42px;
+                    text-align: center;
+                    > span{
+                        display: inline-block;
+                        margin-top:  10px;
+                        width: 23px;
+                        height: 9px;
+                        margin-left: 2px;
+                        background: bisque;
+                    }
+                }
+                > .hot-star{
+                    width: 100%;
+                    height: 45px;
+                    text-align: center;
+                    line-height: 45px;
+                    > i{
+                        font-size: 14px !important;
+                    }
+                }
+                > .hot-buy{
+                    width: 100%;
+                    text-align: center;
+                    > span{
+                        width:152px; 
+                        > b{
+                            display:inline-block;
+                            width: 76px;
+                            height: 26px;
+                            line-height: 26px;
+                            background: black;
+                            color: white;
+                            font-size: 13px;
+                            font-weight: bold;
+                            margin-left: 0;
+                            > a{
+                                color: white;  
+                            }
+                        }
+                    }
+                
+                }
+            }
+            
+        
+        }
+    }
+}

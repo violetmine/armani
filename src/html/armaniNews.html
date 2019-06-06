@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阿玛尼新品上市-阿玛尼官网</title>
+    <link rel="stylesheet" href="/css/model/armaniNews.css">
+    <link rel="stylesheet" href="../libs/font_1215720_bu3ykczneqs/iconfont.css">
+</head>
+<body>
+    <header></header>
+    <div class="top-pointer">
+        <a href="/index.html">首页</a>&nbsp;&gt;&nbsp;
+        <a href="/html/armaniNews.html">最新资讯</a>&nbsp;&gt;&nbsp;
+        <a href="/html/armaniNews.html">新品</a>&nbsp;&gt;&nbsp;新品上市
+
+    </div>
+    <div class="main-body">
+        <div class="body-left">
+            <ul class="newnav">
+                <li>新品上市</li>
+            </ul>
+            <ul class="food-find">
+                <li> <a href="">新品上市</a> </li>
+                <li> <a href="">当季推荐</a></li>
+                
+                <li> <a href="">全部产品</a></li>
+                <li>产品筛选</li>
+            </ul>
+            <ul class="beforeclick">
+                <li>FINISH <i class="iconfont icon-jiahao"></i></li>
+                
+            </ul>
+            <ul class="beforeclick">
+                <li>色系<i class="iconfont icon-jiahao"></i></li>
+            </ul>
+            <ul class="beforeclick">
+                <li>价格<i class="iconfont icon-jiahao"></i></li>
+            </ul>
+        </div>
+        <div class="body-right">
+            <div class="right-top">
+                <span>产品（24）</span>
+                <span>默认排序 <i class=""></i></span>
+
+            </div>
+            <div id="goods"></div>
+                
+
+                
+                <script type="text/html" id="listT">
+                    {{each list good}}
+                        <div >
+                            <span class="hot-sale">热卖</span>
+                            <a href="/html/detail.html" class="imge"><img src=" {{good.image}}" alt=""></a>
+                            <p class="hot-name"><a href="/html/detail.html"> {{good.name}}</a></p>
+                            <p class="hot-name-en"> <a href="/html/detail.html">{{good.enname}} </a></p>
+                            <p class="hot-colorcard">
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                                <span><a href="/html/detail.html"></a></span>
+                            </p>
+                            <p class="hot-star">
+                                <i class="iconfont icon-star_full"></i>
+                                <i class="iconfont icon-star_full"></i>
+                                <i class="iconfont icon-star_full"></i>
+                                <i class="iconfont icon-star_full"></i>
+                                <i class="iconfont icon-ai65"></i>
+                            
+                            </p>
+                            <p class="hot-buy">
+                                <span> <b>￥{{good.price}} </b><b> <a href="">立即购买</a></b></span>
+                                
+                            </p>
+                        </div>
+                    {{/each}}
+                </script>
+            <div></div>
+        
+    </div>
+
+
+
+    <footer></footer>
+
+    <script src="../libs/require.js"  data-main='../js/model/armaniNews.js'></script>
+</body>
+</html>
+
+<!-- [
+    {
+        listSpan:[
+            {span}
+        ]
+    }
+] -->

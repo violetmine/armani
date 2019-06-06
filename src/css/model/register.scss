@@ -1,0 +1,60 @@
+@import './header.scss';
+@import './footer.scss';
+$bgcolor:#eeeeee;
+.main-top{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+}
+.mian-body{
+    height: 840px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    .regi{
+        width: 700px;
+        height: 100%;
+        margin-bottom: 10px;
+        margin-top: 0 auto;
+        .left{
+            width: 505px;
+            height: 100%;
+            float: left;
+            le-head{
+                height:46px;
+                width: 100%;
+                padding: 0 16px;
+                background: $bgcolor;
+                span{
+                    height: 46px;
+                    line-height: 46px;
+                }
+                span:nth-child(1){
+                    float: left;
+                    font-size: 18px;
+                }
+                span:nth-child(2){
+                    float: right;
+                    font-size: 12px;
+                }
+            }
+            .sex{
+                width: 100%;
+                height: 85px;
+                padding-top: 30px;
+                font-size: 12px;
+                lable{
+                    
+                }
+            }
+        }
+        .right{
+            width: 160px;
+            height: 100%;
+
+        }
+    }
+}
