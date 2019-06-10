@@ -7,7 +7,8 @@ require.config({
         footerjs:'js/model/footer',
         url:'js/model/url',
         cookie: 'libs/jquery-plugins/jquery.cookie',
-        template:'libs/art-template/template-web'
+        template:'libs/art-template/template-web',
+        tools:'libs/tools'
     },
     shim: {
         cookie: {

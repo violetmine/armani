@@ -68,7 +68,8 @@ a{
     border-right: 1px solid;
 }
 .header .header-right li:nth-child(2){
-    border-right: 1px solid;
+    border-right: 1px solid black;
+
 }
 .nav{
     width: 100%;
@@ -200,7 +201,7 @@ a{
         z-index: 3;
         position: absolute;
         background: white;
-        top: 50px;;
+        top: 40px;
         left: 660px;
         div{
             float: left;
@@ -465,4 +466,8 @@ a{
             }
         }
     }
+}
+#aa.loginin{
+    color: red;
+    font-size: 14px;
 }

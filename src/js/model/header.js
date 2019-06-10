@@ -1,4 +1,4 @@
-define(['template','url','jquery'],(template,url)=>{
+define(['cookie','template','url','jquery'],(cookie,template,url)=>{
     class header{
         constructor(){
             this.head=$("header");
@@ -10,7 +10,14 @@ define(['template','url','jquery'],(template,url)=>{
                 this.login();
                 this.orderMage();
                 this.buybag();
+                this.cooki();
             })
+        }
+        cooki(){
+            if($.cookie('useremail') != "" && $.cookie("password") !=""){
+                $("#loging #aa").html($.cookie('useremail'));
+                $("#loging #aa").addClass("loginin");
+            }
         }
         hovershow(){
            
@@ -99,10 +106,10 @@ define(['template','url','jquery'],(template,url)=>{
                 $("<div>").appendTo('.show-login').addClass('show-loging');
                 $('.show-loging').html(`<div class="left">
                 <p>登录</p>
-                <p><input type="text" placeholder="邮箱/手机"></p>
-                <p><input type="text" placeholder="您的密码"></p>
+                <p><input type="text" placeholder="邮箱/手机" id="userep"></p>
+                <p><input type="text" placeholder="您的密码" id='userpass'></p>
                 <p><input type="checkbox" checked><span>记住用户名</span><a href="">忘记密码</a></p>
-                <p><a href="">登录</a></p>
+                <p><a href="javascript:;" id="loggin">登录</a></p>
                 <p>----------------------或</p>
                 <p>使用合作账号登录</p>
                 <p><a href="">微信</a><a href="">新浪</a><a href="">支付宝</a><a href="">QQ</a></p>
@@ -112,11 +119,27 @@ define(['template','url','jquery'],(template,url)=>{
                 <p>注册成为阿玛尼美妆官网会员，下单流程更流畅，并可查看您的订单记录，追踪订单物流，第一时间获取官网最新资讯.</p>
                 <p><a href="/html/register.html">立即注册</a></p>
             </div>`)
+                $("#loggin").on('click',()=>{
+                    this.logg();
+                })
             },()=>{
                 $('.show-loging').remove();
             })
 
     }
+        //登录事件
+        logg(){
+            let useremail=$("#userep").val();
+            let password=$("#userpass").val();
+            $.cookie("useremail",useremail,{path:'/',expires:7});
+            $.cookie("password",password,{path:'/',expires:7});
+            if($.cookie('useremail') != "" && $.cookie("password") !=""){
+                $("#loging").html($.cookie('useremail'));
+            $("#loging").addClass("loginin");
+            }else{
+                alert("登录名和密码不能为空");
+            }
+        }
     orderMage(){
         //判断购物车内是否有商品，这是空购物弹框样式
         $("#order").hover(()=>{
@@ -193,6 +216,7 @@ define(['template','url','jquery'],(template,url)=>{
         })
         $('#rangoods').html(html)
     }
+
     
    }
    return new header();
