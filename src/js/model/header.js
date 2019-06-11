@@ -11,10 +11,11 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 this.orderMage();
                 this.buybag();
                 this.cooki();
+                this.search();
             })
         }
         cooki(){
-            if($.cookie('useremail') != "" && $.cookie("password") !=""){
+            if($.cookie('useremail') !== undefined && $.cookie("password") !==undefined){
                 $("#loging #aa").html($.cookie('useremail'));
                 $("#loging #aa").addClass("loginin");
             }
@@ -23,7 +24,6 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
            
             //导航第一个的hover事件
             $(".nav .u1 .news").hover(()=>{
-                // console.log(1);
                 $("<div>").appendTo(".nav .u1 .news").addClass("show-box");
                 $(".show-box").html(`<ul>
                 <li> <a href="">新品上市</a></li>
@@ -35,7 +35,7 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
             });
             //第二个
             $(".nav .u1 .colormakeup").hover(()=>{
-                // console.log(1);
+                
                 $("<div>").appendTo(".nav .u1 .colormakeup").addClass("show-colormakeup");
                 $(".show-colormakeup").html(`<div>
                 <div class="co-top">
@@ -102,7 +102,6 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
         login(){
              //登录的hover事件
              $("#loging").hover(()=>{
-                console.log(1);
                 $("<div>").appendTo('.show-login').addClass('show-loging');
                 $('.show-loging').html(`<div class="left">
                 <p>登录</p>
@@ -140,84 +139,125 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 alert("登录名和密码不能为空");
             }
         }
-    orderMage(){
-        //判断购物车内是否有商品，这是空购物弹框样式
-        $("#order").hover(()=>{
-            console.log(1);
-            $("<div>").appendTo('.show-order').addClass('show-ordering');
-            $('.show-ordering').html(` <div class="left">
-            <p>订阅获取阿玛尼官网资讯</p>
-            <p>沉迷于乔治阿玛尼的美丽世界. <br>
-                报名参加我们的电子邮件通讯，享受我们的会员特权.</p>
-            <p><input type="e-mail" placeholder="您的邮箱"></p>
-            <p><a href="">立即订阅</a></p>
-            <p><input type="checkbox"><span>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；我已阅读并确认被给予充分机会理解该使用条款</span></p>
-        </div>
-        <div class="right">
-            <p><img src="/images/newsletter-slot.jpg" alt=""></p>
-            <p>阿玛尼美妆官网会员权益</p>
-            <p>直击阿玛尼袖长最新妆容，获取潮流美妆技巧，<br>
-                尊奢会员专属礼遇.</p>
-        </div>`)
-        
-        },()=>{
-            $('.show-ordering').remove();
-        })
-
-    }
-    //hover购物车事件
-    buybag(){
-        $("#bag").hover(()=>{
-            console.log(1);
-            $("<div>").appendTo('#show-bag').addClass('show-bagingbefore');
-            $('.show-bagingbefore').html(`  
-            <div class="left">
-                    <p ><span>您的购物袋为空</span><br><a href="/index.html">立即选购你喜欢的商品</a></p>
+        orderMage(){
+            //判断购物车内是否有商品，这是空购物弹框样式
+            $("#order").hover(()=>{
+                $("<div>").appendTo('.show-order').addClass('show-ordering');
+                $('.show-ordering').html(` <div class="left">
+                <p>订阅获取阿玛尼官网资讯</p>
+                <p>沉迷于乔治阿玛尼的美丽世界. <br>
+                    报名参加我们的电子邮件通讯，享受我们的会员特权.</p>
+                <p><input type="e-mail" placeholder="您的邮箱"></p>
+                <p><a href="">立即订阅</a></p>
+                <p><input type="checkbox"><span>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；我已阅读并确认被给予充分机会理解该使用条款</span></p>
             </div>
             <div class="right">
-                    <p  class="pt">你可能喜欢</p>
-                    <div id="rangoods">
-
-                    </div>
-                    <script type='text/html' id="listL">
-                        {{each list likeG}}
-                                        <div>
-                                            <div><img src="{{likeG.image}}" alt=""></div>
-                                            <div>
-                                                <p>{{likeG.name}}</p>
-                                                <p>
-                                                    <i class="iconfont icon-star_full"></i>
-                                                    <i class="iconfont icon-star_full"></i>
-                                                    <i class="iconfont icon-star_full"></i>
-                                                    <i class="iconfont icon-star_full"></i>
-                                                    <i class="iconfont icon-ai65"></i>
-                                                </p>
-                                                <p>￥{{likeG.price}}</p>
-                                            </div>
-                                        </div>
-                        {{/each}}
-                    </script>
+                <p><img src="/images/newsletter-slot.jpg" alt=""></p>
+                <p>阿玛尼美妆官网会员权益</p>
+                <p>直击阿玛尼袖长最新妆容，获取潮流美妆技巧，<br>
+                    尊奢会员专属礼遇.</p>
             </div>`)
-        //购物袋为空时的请求数据方法
-        this.render();
-        },()=>{
-            $('.show-bagingbefore').remove();
-        })
-    }
-    render(){
-        $.get(url.baseUrl+"/armani/goods/imfo/get",(resp)=>{
-            console.log(resp);
-             this.recommend(resp.mightlike);
-        })
-    }
-    recommend(like){
-        let html=template('listL',{
-            list:like.list
-        })
-        $('#rangoods').html(html)
-    }
+            
+            },()=>{
+                $('.show-ordering').remove();
+            })
 
-    
-   }
+        }
+        //hover购物车事件
+        buybag(){
+            $("#bag").hover(()=>{
+                $("<div>").appendTo('#show-bag').addClass('show-bagingbefore');
+                $('.show-bagingbefore').html(`  
+                <div class="left">
+                        <p ><span>您的购物袋为空</span><br><a href="/index.html">立即选购你喜欢的商品</a></p>
+                </div>
+                <div class="right">
+                        <p  class="pt">你可能喜欢</p>
+                        <div id="rangoods">
+
+                        </div>
+                        <script type='text/html' id="listL">
+                            {{each list likeG}}
+                                            <div>
+                                                <div><img src="{{likeG.image}}" alt=""></div>
+                                                <div>
+                                                    <p>{{likeG.name}}</p>
+                                                    <p>
+                                                        <i class="iconfont icon-star_full"></i>
+                                                        <i class="iconfont icon-star_full"></i>
+                                                        <i class="iconfont icon-star_full"></i>
+                                                        <i class="iconfont icon-star_full"></i>
+                                                        <i class="iconfont icon-ai65"></i>
+                                                    </p>
+                                                    <p>￥{{likeG.price}}</p>
+                                                </div>
+                                            </div>
+                            {{/each}}
+                        </script>
+                </div>`)
+            //购物袋为空时的请求数据方法
+            this.render();
+            },()=>{
+                $('.show-bagingbefore').remove();
+            })
+        }
+        render(){
+            $.get(url.baseUrl+"/armani/goods/imfo/get",(resp)=>{
+                this.recommend(resp.mightlike);
+            })
+        }
+        recommend(like){
+            let html=template('listL',{
+                list:like.list
+            })
+            $('#rangoods').html(html)
+        }
+        //搜索框出现
+        search(){
+            let isshow=true;
+            
+            $(".u2").on('click',()=>{
+            if(isshow){
+                    $("<div>").appendTo(".u1").addClass("search-box");
+                    $(".search-box").html(`
+                    <input type="text" placeholder="红管" id="keyword"><a href="../html/armaniNews.html"><i class="iconfont icon-weibiaoti-"></i></a>`) 
+                    $("<div>").appendTo(".u2").addClass("container");
+                    this.linkword();
+                    isshow=false;
+            }else{
+                    $(".search-box").remove();
+                    $(".container").remove();
+                    isshow=true;
+            }
+            
+            })
+            $(".main-inner").on("click",()=>{
+                $(".search-box").remove();
+                $(".container").remove();
+            })
+        }
+        linkword(){
+            
+            $("#keyword").on("keyup",()=>{
+                let keyword=$("#keyword").val();
+                console.log(keyword);
+                $.getJSON(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${keyword}&cb=?`,(resp)=>{
+                    console.log(resp);
+                    $("<ul>").appendTo(".search-box").addClass("link-box");
+                        $(".link-box").html("");
+                        resp.s.forEach((inn)=>{
+                            $("<li>").appendTo(".link-box").html(inn);
+                            // $("li").onmousedown=function(){
+                            //     $("#keyword").val()this.html();
+                            // }
+                        })
+                    
+                    $("#keyword").onblur=function(){
+                        $(".link-box").innerHTML="";
+                    }
+                })
+            })
+        }
+    }
    return new header();
 })

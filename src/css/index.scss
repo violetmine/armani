@@ -8,7 +8,7 @@
 }
 .logo{
     width: 100%;
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
     height: 420px;
     overflow: hidden;
@@ -50,7 +50,8 @@
 .hot{
     width: 100%;
     height: 382px;
-    margin: 14px 0 40px;
+    max-width: 1280px;
+    margin: 14px auto 40px;
     
     > .head{
         height: 27px;
@@ -188,6 +189,8 @@
 }
 .middle-pic{
     width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     height: 680px;
     display: flex;
      .pic-left{

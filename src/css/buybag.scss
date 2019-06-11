@@ -1,0 +1,75 @@
+@import './model/header.scss';
+@import './model/footer.scss';
+.main{
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    header{
+        height: 84px;
+        width: 100%;
+        border-bottom: 2px solid;
+        text-align: center;
+        padding-top: 20px;
+    }
+    .main-body{
+        width: 100%;
+        padding: 0 10%;
+        .buyway{
+            width: 100%;
+            height: 48px;
+            margin-top: 48px;
+            display: flex;
+            justify-content: space-between;
+            div{
+                width: 30%;
+                height: 100%;
+                border-bottom: 2px solid #d3d3d3;
+                font-size: 12px;
+                color: #d3d3d3;
+                float: left;
+            }
+            .way-in{
+                border-bottom: 2px solid ;
+                color: black;
+            }
+        }
+        .nogood{
+            display: none;
+            h1{
+                width: 100%;
+                height: 62px;
+                margin-top: 50px;
+            }
+            P{
+                width: 100%;
+                height: 38px;
+                font-size: 13px;
+                color: #666666;
+                a{
+                    text-decoration: underline;
+                    color: #666666;
+                }
+            }
+        }
+        .goodin{
+            p:nth-child(1){
+                width: 100%;
+                height: 57px;
+                margin-top:40px;
+                font-size: 12px;
+                a{
+                    color: #666666;
+                } 
+            }
+            p:nth-child(2){
+                width: 100%;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+    }
+    footer{
+        width: 100%;
+        height: 415px;
+    }
+}

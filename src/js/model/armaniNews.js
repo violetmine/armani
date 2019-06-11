@@ -8,7 +8,6 @@ require(['../config'],()=>{
             }
             goods(){
                 $.get(url.baseUrl+'/armani/goods/imfo/get',resp=>{
-                    console.log(resp.res_code);
                     if(resp.res_code == 200){
                         console.log(1);
                         this.renderGood(resp.good);
@@ -17,7 +16,6 @@ require(['../config'],()=>{
                 })
             }
             renderGood(respgood){
-                console.log(respgood);
                 let html=template('listT',{
                     list:respgood.list
                 })
