@@ -9,6 +9,9 @@ $color:#666666;
     height: 50px;
     line-height: 50px;
     font-size: 12px;
+    a{
+        text-decoration: underline;
+    }
 }
 .main-body{
     height: 840px;
@@ -41,8 +44,8 @@ $color:#666666;
                     float: right;
                     font-size: 12px;
                     a{
-                        text-decoration: black;
-                        color: $color;
+                        text-decoration:underline;
+                        color:red;
                     }
                 }
             }
@@ -111,7 +114,7 @@ $color:#666666;
             }
             .normalqu{
                 a{
-                    text-decoration: #666666;
+                    text-decoration: underline;
                 }
             }
         }

@@ -12,6 +12,8 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 this.buybag();
                 this.cooki();
                 this.search();
+                let cartlist = localStorage.getItem('cart')
+                if(cartlist){this.cartstyle()}
             })
         }
         cooki(){
@@ -26,9 +28,9 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
             $(".nav .u1 .news").hover(()=>{
                 $("<div>").appendTo(".nav .u1 .news").addClass("show-box");
                 $(".show-box").html(`<ul>
-                <li> <a href="">新品上市</a></li>
-                <li><a href="">当季推荐</a></li>
-                <li><a href="">全部产品</a></li>
+                <li> <a href="javascript:;">新品上市</a></li>
+                <li><a href="javascript:;">当季推荐</a></li>
+                <li><a href="javascript:;">全部产品</a></li>
             </ul>`)
             },()=>{
                 $(".show-box").remove();
@@ -41,37 +43,37 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 <div class="co-top">
                 <ul>
                     <li>唇部</li>
-                    <li> <a href="">唇釉</a> </li>
-                    <li><a href="">唇膏</a> </li>
-                    <li><a href="">唇线笔</a> </li>
+                    <li> <a href="javascript:;">唇釉</a> </li>
+                    <li><a href="javascript:;">唇膏</a> </li>
+                    <li><a href="javascript:;">唇线笔</a> </li>
                 </ul>
                 <ul>
                     <li>面部</li>
-                    <li> <a href="">腮红/胭脂</a> </li>
-                    <li><a href="">遮瑕</a> </li>
-                    <li><a href="">粉底液</a> </li>
-                    <li><a href="">面部清洁</a> </li>
-                    <li><a href="">隔离与底妆</a> </li>
+                    <li> <a href="javascript:;">腮红/胭脂</a> </li>
+                    <li><a href="javascript:;">遮瑕</a> </li>
+                    <li><a href="javascript:;">粉底液</a> </li>
+                    <li><a href="javascript:;">面部清洁</a> </li>
+                    <li><a href="javascript:;">隔离与底妆</a> </li>
                 </ul>
                 <ul>
                     <li>眼部</li>
-                    <li> <a href="">眉笔</a> </li>
-                    <li><a href="">眼线</a> </li>
-                    <li><a href="">眼影</a> </li>
-                    <li><a href="">睫毛膏</a> </li>
-                    <li><a href="">美眸膏</a> </li>
-                    <li><a href="">眼部卸妆</a> </li>
+                    <li> <a href="javascript:;">眉笔</a> </li>
+                    <li><a href="javascript:;">眼线</a> </li>
+                    <li><a href="javascript:;">眼影</a> </li>
+                    <li><a href="javascript:;">睫毛膏</a> </li>
+                    <li><a href="javascript:;">美眸膏</a> </li>
+                    <li><a href="javascript:;">眼部卸妆</a> </li>
                 </ul>
                 <ul>
                     <li>美容工具</li>
-                    <li> <a href="">专业化妆刷</a> </li>
+                    <li> <a href="javascript:;">专业化妆刷</a> </li>
                 </ul>
                 <ul>
                     <li>发现更多</li>
-                    <li> <a href="">阿玛尼唇妆衣橱</a> </li>
-                    <li><a href="">阿玛尼粉妆衣橱</a> </li>
-                    <li><a href="">阿玛尼香氛衣橱</a> </li>
-                    <li><a href="">全新【裸感出色】彩妆系列</a> </li>
+                    <li> <a href="javascript:;">阿玛尼唇妆衣橱</a> </li>
+                    <li><a href="javascript:;">阿玛尼粉妆衣橱</a> </li>
+                    <li><a href="javascript:;">阿玛尼香氛衣橱</a> </li>
+                    <li><a href="javascript:;">全新【裸感出色】彩妆系列</a> </li>
                 </ul>
                 </div>
                 <div class="bottom">
@@ -79,19 +81,19 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                         <p>臻致丝绒哑光唇釉</p>
                         <p>The Best seller</p>
                         <p>lip gloss</p>
-                        <a href="">立即购买</a>
+                        <a href="/html/detail.html">立即购买</a>
                     </div>
                     <div>
                         <p>臻致丝绒哑光唇釉</p>
                         <p>The Best seller</p>
                         <p>lip gloss</p>
-                        <a href="">立即购买</a>
+                        <a href="/html/detail.html">立即购买</a>
                     </div>
                     <div>
                         <p>臻致丝绒哑光唇釉</p>
                         <p>The Best seller</p>
                         <p>lip gloss</p>
-                        <a href="">立即购买</a>
+                        <a href="/html/detail.html">立即购买</a>
                     </div>
                 </div>
             </div>`)
@@ -121,6 +123,8 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 $("#loggin").on('click',()=>{
                     this.logg();
                 })
+            //如果已经登录
+            if($.cookie('useremail')) $('.show-loging').remove();
             },()=>{
                 $('.show-loging').remove();
             })
@@ -139,8 +143,8 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 alert("登录名和密码不能为空");
             }
         }
+        //订阅杂志的样式
         orderMage(){
-            //判断购物车内是否有商品，这是空购物弹框样式
             $("#order").hover(()=>{
                 $("<div>").appendTo('.show-order').addClass('show-ordering');
                 $('.show-ordering').html(` <div class="left">
@@ -148,7 +152,7 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 <p>沉迷于乔治阿玛尼的美丽世界. <br>
                     报名参加我们的电子邮件通讯，享受我们的会员特权.</p>
                 <p><input type="e-mail" placeholder="您的邮箱"></p>
-                <p><a href="">立即订阅</a></p>
+                <p><a href="javascript:;">立即订阅</a></p>
                 <p><input type="checkbox"><span>我同意依照本使用条款和隐私政策对我的个人信息进行收集和使用；我已阅读并确认被给予充分机会理解该使用条款</span></p>
             </div>
             <div class="right">
@@ -161,6 +165,7 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
             },()=>{
                 $('.show-ordering').remove();
             })
+            
 
         }
         //hover购物车事件
@@ -179,6 +184,7 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                         <script type='text/html' id="listL">
                             {{each list likeG}}
                                             <div>
+                                                <a href="/html/detail.html">
                                                 <div><img src="{{likeG.image}}" alt=""></div>
                                                 <div>
                                                     <p>{{likeG.name}}</p>
@@ -191,12 +197,19 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                                                     </p>
                                                     <p>￥{{likeG.price}}</p>
                                                 </div>
+                                                </a>
                                             </div>
                             {{/each}}
                         </script>
                 </div>`)
             //购物袋为空时的请求数据方法
             this.render();
+            //如果购物车内有商品
+            let cartlist = localStorage.getItem('cart');
+            if(cartlist){
+                console.log(1);
+                $('.show-bagingbefore').remove();
+            }
             },()=>{
                 $('.show-bagingbefore').remove();
             })
@@ -212,7 +225,7 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
             })
             $('#rangoods').html(html)
         }
-        //搜索框出现
+        //搜索框
         search(){
             let isshow=true;
             
@@ -236,13 +249,13 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 $(".container").remove();
             })
         }
+        //搜索框的联想
         linkword(){
             
             $("#keyword").on("keyup",()=>{
                 let keyword=$("#keyword").val();
-                console.log(keyword);
                 $.getJSON(`https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=${keyword}&cb=?`,(resp)=>{
-                    console.log(resp);
+                    
                     $("<ul>").appendTo(".search-box").addClass("link-box");
                         $(".link-box").html("");
                         resp.s.forEach((inn)=>{
@@ -257,6 +270,11 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                     }
                 })
             })
+        }
+        cartstyle(){
+            let num=JSON.parse(localStorage.getItem("cart")).length;
+            $("#bagcart").html(`<span>我的购物袋</span> &nbsp;&nbsp; <span id="goodnum">${num}</span>`);
+
         }
     }
    return new header();

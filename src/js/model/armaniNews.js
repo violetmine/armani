@@ -9,7 +9,6 @@ require(['../config'],()=>{
             goods(){
                 $.get(url.baseUrl+'/armani/goods/imfo/get',resp=>{
                     if(resp.res_code == 200){
-                        console.log(1);
                         this.renderGood(resp.good);
                     }
                    
@@ -22,8 +21,6 @@ require(['../config'],()=>{
                 
                 //把template模板写出来的html加到页面中
                 $('#goods').html(html);
-                console.log($(''))
-                
             }
         }
         new News();

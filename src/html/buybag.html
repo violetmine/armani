@@ -27,14 +27,68 @@
                     <h6>成功提交订单</h6>
                 </div>
             </div>
-            <div class="nogood" >
+            <!-- 购物车为空时 -->
+            <div class="nogood change" >
                 <h1>我的购物袋</h1>
                 <p>您的购物袋是空的</p>
                 <p> <a href="/index.html">&lt;继续购物</a></p>
             </div>
+            <!-- 购物车不为空时的样式 -->
             <div class="goodin">
-                <p><a href="/index.html">&lt;继续购物</a></p>
-                <p>我的购物袋#40;<span>1</span>个 #41;</p>
+                
+                <p class="p1"><a href="/index.html">&lt;继续购物</a></p>
+                <p class="p2">我的购物袋&nbsp;&#40;<span id="goodnum"> 1 </span>个 &#41;</p>
+                <div class="imformation">
+                    <div class="left">
+                        <p class="heade">
+                            <span><input type="checkbox" checked id="allcheck"></span>
+                            <span>全选</span>
+                            <span>产品</span>
+                            <span>单价</span>
+                            <span>数量</span>
+                            <span>价格</span>
+                        </p>
+                        <ul class="goodbody" id="buycarvl">
+                        </ul>
+                        <div class="sum">
+                            <div class="left">订单总结</div>
+                            <div class="rightt">
+                                <div class="top"><div>商品价格</div><div>￥<span  id="m1">0</span></div></div>
+                                <div class="bott"><div>运费</div><div>￥<span>0</span></div></div>
+                            </div>
+                        </div>
+                        <div class="totlemoney">
+                            <div class="left">总价</div>
+                            <div class="rightt">￥<span id="m2">0</span></div>
+                        </div>
+                        <div class="btn">
+                            <span><a href="/html/armaniNews.html">&lt;&nbsp;继续购物</a></span>
+                            <span><a href="/html/detail.html">立即结算</a></span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p class="p1">热卖产品推荐</p>
+                        <div class="goodtj">
+                                <a href="javascript:;" class="imge"><img src="https://www.giorgioarmanibeauty.cn/dw/image/v2/AARM_PRD/on/demandware.static/-/Sites-armani-master/default/dw2f9f7948/GAC0/01_20/GAC00001/GAC00001-400.jpg?sw=250" alt=""></a>
+                                <p class="hot-name"><a href="">臻致丝绒哑光唇釉</a></p>
+                                <p class="hot-name-en"> <a href="">GIORGIO ARMANI LIP MAESTRO</a></p>
+                                <p class="hot-star">
+                                    <i class="iconfont icon-star_full"></i>
+                                    <i class="iconfont icon-star_full"></i>
+                                    <i class="iconfont icon-star_full"></i>
+                                    <i class="iconfont icon-star_full"></i>
+                                    <i class="iconfont icon-ai65"></i>
+                                
+                                </p>
+                                <p class="price">￥310</p>
+                                <p class="hot-buy">
+                                    <span>  <a href="/html/detail.html">立即购买</a></span>
+                                    
+                                </p>                                       
+                                    
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <footer>
@@ -80,6 +134,6 @@
                </div>
     </div>
 
-    <script src="/js/register.js" main-data="/js/buybag.js"></script>
+    <script src="/libs/require.js" data-main="/js/buybag.js"></script>
 </body>
 </html>

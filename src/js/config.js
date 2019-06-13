@@ -9,13 +9,17 @@ require.config({
         cookie: 'libs/jquery-plugins/jquery.cookie',
         template:'libs/art-template/template-web',
         tools:'libs/tools',
-        etalage:'libs/jquery-plugins/jquery.etalage.min'
+        etalage:'libs/jquery-plugins/jquery.etalage.min',
+        fly:'libs/jquery-plugins/jquery.fly.min'
     },
     shim: {
         cookie: {
           deps: ['jquery']
         },
         etalage:{
+          deps:['jquery']
+        },
+        fly:{
           deps:['jquery']
         }
       }

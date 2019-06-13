@@ -13,7 +13,7 @@
     }
     .main-body{
         width: 100%;
-        padding: 0 10%;
+        padding: 0 8%;
         .buyway{
             width: 100%;
             height: 48px;
@@ -34,7 +34,7 @@
             }
         }
         .nogood{
-            display: none;
+            height: 500px;
             h1{
                 width: 100%;
                 height: 62px;
@@ -52,19 +52,267 @@
             }
         }
         .goodin{
-            p:nth-child(1){
+            .p1{
                 width: 100%;
                 height: 57px;
                 margin-top:40px;
                 font-size: 12px;
                 a{
                     color: #666666;
+                    text-decoration: underline;
                 } 
             }
-            p:nth-child(2){
+            .p2{
                 width: 100%;
                 height: 40px;
                 font-size: 20px;
+            }
+            .imformation{
+                width: 100%;
+                overflow: hidden;
+                .left{
+                    float: left;
+                    width: 792px;
+                    .heade{
+                        width: 100%;
+                        height: 45px;
+                        background: #eeeeee;
+                        span{
+                            display: inline-block;
+                            float: left;
+                        }
+                        span:nth-child(1){
+                            width: 45px;
+                            height: 100%;
+                            padding: 16px 0 0 10px;
+                        }
+                        span:nth-child(2){
+                            width: 198px;
+                            height: 100%;
+                            padding: 13px 0;
+                            font-size: 12px;
+                        }
+                        span:nth-child(3){
+                            width: 258px;
+                            height: 100%;
+                            padding: 13px 0;
+                            font-size: 12px;
+                        }
+                        span:nth-child(4){
+                            width: 92px;
+                            height: 100%;
+                            padding: 13px 0;
+                            font-size: 12px;
+                        }
+                        span:nth-child(5){
+                            width: 110px;
+                            height: 100%;
+                            padding: 13px 0;
+                            font-size: 12px;
+                        }
+                        span:nth-child(6){
+                            width:60px;
+                            height: 100%;
+                            padding: 13px 0;
+                            font-size: 12px;
+                        }
+                    }
+                    .goodbody{
+                        min-height: 182px;
+                        overflow: hidden;
+                        li{
+                            width: 100%;
+                            height: 182px;
+                            border-bottom: 1px solid #eeeeee;
+                            overflow: hidden;
+                            div{
+                                float: left;
+                            }
+                            div:nth-child(1){
+                                width: 45px;
+                                height: 100%;
+                                padding:82px 0 0 10px;
+                            }
+                            div:nth-child(2){
+                                width: 198px;
+                                height: 100%;
+                                padding:35px 0;
+                                img{
+                                    width: 108px;
+                                    height: 108px;
+                                }
+                            }
+                            div:nth-child(3){
+                                width: 258px;
+                                height: 100%;
+                                padding-top: 50px;
+                                p:nth-child(1){
+                                    width: 100%;
+                                    height: 30px;
+                                    font-size: 12px;
+                                }
+                                p:nth-child(2){
+                                    width: 100%;
+                                    height: 56px;
+                                    font-size: 12px;
+                                }
+                                p:nth-child(3){
+                                    width: 100%;
+                                    height: 30px;
+                                    font-size: 12px;
+                                    a{
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                            div:nth-child(4){
+                                width: 92px;
+                                height: 100%;
+                                padding-top:50px;
+                                font-size: 12px;
+                            }
+                            div:nth-child(5){
+                                width: 110px;
+                                height: 100%;
+                                padding-top:50px;
+                            }
+                            div:nth-child(6){
+                                width: 60px;
+                                height: 100%;
+                                padding-top:50px;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                    .sum{
+                        width: 100%;
+                        height:84px;
+                        border-bottom: 1px solid #eeeeee;
+                        display: flex;
+                        justify-content: space-between;
+                        .left{
+                            width: 60px;
+                            height: 100%;
+                            line-height: 84px;
+                            font-size: 12px;
+                        }
+                        .rightt{
+                            width: 310px;
+                            height: 100%;
+                            padding-top: 30px;
+                            padding-right: 22px;
+                            .top,.bott{
+                                height: 19px;
+                                line-height: 19px;
+                                font-size: 12px;
+                                display: flex;
+                                justify-content: space-between;
+                            }
+                            
+                        }
+                    }
+                    .totlemoney{
+                        width: 100%;
+                        height:84px;
+                        display: flex;
+                        justify-content: space-between;
+                        .left{
+                            width: 60px;
+                            height: 100%;
+                            line-height: 77px;
+                            font-size: 12px;
+                        }
+                        .rightt{
+                            width: 60px;
+                            height: 100%;
+                            line-height: 77px;
+                            font-size: 12px;
+                            font-weight:bold;
+                        }
+                    }
+                    .btn{
+                        width: 100%;
+                        height: 60px;
+                        display: flex;
+                        justify-content: space-between;
+                        span:nth-child(1){
+                            a{
+                                font-size: 12px;
+                                color:#666666;
+                                text-decoration: underline;
+                            }
+                        }
+                        span:nth-child(2){
+                            a{
+                                display: inline-block;
+                                width: 128px;
+                                height: 25px;
+                                background: #a2221f;
+                                color: white;
+                                text-align: center;
+                                font-size: 12px;
+                                line-height: 25px;
+                            }
+                        }
+                    }
+                }
+                .right{
+                    width: 230px;
+                    border: 1px solid #eeeeee;
+                    float: left;
+                    padding: 0 15px;
+                    margin-left: 20px;
+                    .p1{
+                        width: 100%;
+                        height: 62px;
+                        line-height: 62px;
+                        text-align: center;
+                        font-size: 16px;
+                    }
+                    .goodtj{
+                        height: 290px;
+                        border-top: 1px solid #eeeeee;
+                        padding-left: 50px;
+                        padding-top:20px; 
+                        font-size: 12px;
+                        .imge{
+                            img{
+                                width: 74px;
+                                height:74px;
+                            }
+                            
+                        }
+                        .hot-name{
+                            height: 45px;
+                            line-height: 45px;
+                        }
+                        .hot-name-en{
+                            line-height: 34px;
+                        }
+                        .hot-star{
+                            height: 37px;
+                            line-height: 37px;
+                            text-align: center;
+                            i{
+                                font-size: 12px !important;
+                            }
+                        }
+                        .price{
+                            height: 20px;
+                        }
+                        .hot-buy{
+                            a{
+                                display: block;
+                                width: 66px;
+                                height: 22px;
+                                background: black;
+                                text-align: center;
+                                line-height: 22px;
+                                color: white;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -72,4 +320,7 @@
         width: 100%;
         height: 415px;
     }
+}
+.change{
+    display: none;
 }

@@ -4,6 +4,7 @@ require(['./config'],()=>{
             constructor(){
                $("#regi").on('click',()=>{
                 this.reg();
+                
                }) 
             }
             reg(){
@@ -12,6 +13,8 @@ require(['./config'],()=>{
                 let password2=$("#password2").val();
                 //如果两次输入的密码相同
                 if(password==password2){
+                    
+                    window.location.href="/html/login.html";
                     tools.fetch("http://localhost:80/api/armaniphp/register.php",{useremail,password}).then(resp=>{
                         console.log(1);
                         console.log(resp);

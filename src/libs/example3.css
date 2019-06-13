@@ -17,7 +17,9 @@
 
 #example3 .etalage_thumb{
 	background: white url(../images/loading.gif) center no-repeat;
-	
+	-webkit-box-shadow: 0 0 7px #aaa;
+	-moz-box-shadow: 0 0 7px #aaa;
+	box-shadow: 0 0 7px #aaa;
 }
 
 #example3 .etalage_small_thumbs li{
@@ -26,22 +28,24 @@
 }
 
 #example3 ul li.etalage_smallthumb_active{
-	
+	-webkit-box-shadow: 0 0 5px #333;
+	-moz-box-shadow: 0 0 5px #333;
+	box-shadow: 0 0 5px #333;
 	cursor: default;
 }
 
 #example3 .etalage_zoom_area,
 .etalage_zoom_area{
 	background: url(../images/loading.gif) center no-repeat;
-	-webkit-box-shadow: 0 0 1px #333;
-	-moz-box-shadow: 0 0 1px #333;
-	box-shadow: 0 0 1px #333;
+	-webkit-box-shadow: 0 0 5px #333;
+	-moz-box-shadow: 0 0 5px #333;
+	box-shadow: 0 0 5px #333;
 }
 
 #example3 .etalage_magnifier{
 	background: white;
-	-webkit-box-shadow: 0 0 1px #000;
-	-moz-box-shadow: 0 0 1px #000;
+	-webkit-box-shadow: 0 0 5px #000;
+	-moz-box-shadow: 0 0 5px #000;
 }
 
 /*
