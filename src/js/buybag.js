@@ -4,12 +4,13 @@ require(['./config'],()=>{
             constructor(){
                 this.allmoney=0;
                 this.bind();
-                this.num=0;
+                
                 
             }
             bind(){
+
                 this.carlist = JSON.parse(localStorage.getItem('cart'));
-                
+                this.num=this.carlist.length;
                 console.log(this.carlist)
                 
                 if(!this.carlist ){
@@ -28,7 +29,6 @@ require(['./config'],()=>{
                     }
                 }
                 
-                // this.carlist = JSON.parse(localStorage.getItem('cart'));
                 
             }
             //在页面中加入效果
@@ -69,6 +69,11 @@ require(['./config'],()=>{
                         //注意不要用原生方法取值
                          $(".totle").eq(index).html("￥"+$(item).val() * Number($(".price").eq(index).html().slice(1)));
                         _this.changes();
+                        let precar=JSON.parse(localStorage.getItem('cart'));
+                        console.log($(precar).eq(index).attr("number"));
+                        $(precar).eq(index).attr("number",$(item).val());
+                        localStorage.setItem('cart', JSON.stringify(precar))
+                        
                     })
                 })
                 //复选框算总数
@@ -87,11 +92,12 @@ require(['./config'],()=>{
                          carlist.splice(index,1);
                          localStorage.setItem('cart', JSON.stringify(carlist));
                          let precar=JSON.parse(localStorage.getItem('cart'));
-                         console.log(precar.length)
+                         
                          $("#goodnum").html(precar.length);
                          $("#buycarvl").html("");
                          _this.bind();
                          _this.changes();
+                        
                     })
                     
                 })
@@ -126,8 +132,11 @@ require(['./config'],()=>{
 
                 //选中框状态改变时
                    $(check).on("change",()=>{
+                      
                        //框框选中
                         this.num += $(check).is(':checked')? 1 : -1 ;
+
+                        
                         if(this.num===$(".checks").length){
                             $("#allcheck").prop("checked",true);
                         }
@@ -137,6 +146,10 @@ require(['./config'],()=>{
                         
                         //计算改变后选中框框的值
                       _this.changes();
+                      //单选框没有选中被删除时，全选框的状态
+                      _this.uncheckdel(index,_this);
+                      
+
                     })
                     
                    
@@ -163,6 +176,20 @@ require(['./config'],()=>{
                     $("#m1").html(allmoney);
                     $("#m2").html(allmoney);
                 })
+            }
+            uncheckdel(index,_this){
+                $(".delet").eq(index).on("click",function(){
+                    console.log($(this).parent().parent().find(".checks").is(':checked'))
+                        if($(this).parent().parent().find(".checks").is(':checked')===false){
+                        $(".checks").length -=1;
+                    }
+                    if(_this.num===$(".checks").length){
+                        $("#allcheck").prop("checked",true);
+                    }
+                    if(_this.num!=$(".checks").length){
+                        $("#allcheck").prop("checked",false);
+                    }
+                 })
             }
          }
         new buycar();
