@@ -6,12 +6,18 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
         }
         event(){
             this.head.load('/html/header.html',()=>{
+                //hover 事件
                 this.hovershow();
                 this.login();
                 this.orderMage();
                 this.buybag();
+                //登录事件
                 this.cooki();
+                //搜索事件
                 this.search();
+                //鼠标的滚动事件
+                this.scrollbe();
+                //头上的购物袋数量变化
                 let cartlist = localStorage.getItem('cart')
                 if(cartlist){this.cartstyle()}
             })
@@ -275,6 +281,12 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
             let num=JSON.parse(localStorage.getItem("cart")).length;
             $("#bagcart").html(`<span>我的购物袋</span> &nbsp;&nbsp; <span id="goodnum">${num}</span>`);
 
+        }
+        scrollbe(){
+            $(window).scroll(()=>{
+                console.log($(document).scrollTop());
+            })
+            
         }
     }
    return new header();

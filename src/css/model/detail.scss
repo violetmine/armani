@@ -43,7 +43,7 @@ $color:#666666;
          }
         
          .good-imf{
-             width: 31%;
+             width: 35%;
              float: left;
              margin-left: 90px;
              margin-top: 50px;
@@ -80,10 +80,11 @@ $color:#666666;
                 span{
                     display: inline-block;
                     width: 22px;
-                    height: 22px;
+                    height: 10px;
                     background: gold;
                     margin-right: 4px;
                     font-size: 12px;
+                    transition:1s;
                 }
             }
             P:nth-child(6){
@@ -179,7 +180,7 @@ $color:#666666;
                     }
                 }
                 .conta{
-                    width: 412px;
+                    width: 65%;
                     font-size: 12px;
                     color: $color;
                     float: left;
@@ -188,6 +189,9 @@ $color:#666666;
                 }
             }
             .way{
+                width: 90%;
+                margin-left: 5%;
+                margin-top: 5%;
                 font-size: 12px;
                 color: $color;
                 display: none;
@@ -226,11 +230,11 @@ $color:#666666;
          }
      }
  }
- .changes .descr{
+ .changes .ms{
     display: none;
  }
  .changes .way{
-     display: block;
+     display: block !important;
  }
  .changes #des{
      border: none;

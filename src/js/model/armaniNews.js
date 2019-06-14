@@ -7,6 +7,7 @@ require(['../config'],()=>{
                 
             }
             goods(){
+               
                 $.get(url.baseUrl+'/armani/goods/imfo/get',resp=>{
                     if(resp.res_code == 200){
                         this.renderGood(resp.good);
@@ -21,6 +22,12 @@ require(['../config'],()=>{
                 
                 //把template模板写出来的html加到页面中
                 $('#goods').html(html);
+                 //色块的渐变
+                 $(".hot-colorcard span").hover(function(){
+                    $(this).css({"height":"18px"})
+                },function(){
+                    $(this).css({"height":"9px"})
+                })
             }
         }
         new News();

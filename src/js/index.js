@@ -37,5 +37,10 @@ require(['./config'],()=>{
             },8000)
             return auto;
         })())
+        $(".hot-colorcard span").hover(function(){
+            $(this).css({"height":"18px"})
+        },function(){
+            $(this).css({"height":"9px"})
+        })
     })
 })

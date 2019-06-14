@@ -8,6 +8,11 @@ require(['../config'],()=>{
                 this.goodd();
             }
             init(){
+                $(".colors span").hover(function(){
+                    $(this).css({"height":"22px"})
+                },function(){
+                    $(this).css({"height":"10px"})
+                })
                 $(document).ready(function($){
                     $("#example3").etalage({
                         thumb_image_width: 300,

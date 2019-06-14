@@ -1,4 +1,4 @@
-@import '../../libs/boostrap/css/bootstrap.min.css';
+
 @import './footer.scss';
 @import './header.scss';
 
@@ -16,7 +16,7 @@ $bordercolor:#cccccc;
     line-height: 45px;
     border-bottom: 1px solid $bordercolor;
     a{
-        color: #c7b8b8;
+    text-decoration: underline;
     }
 }
 .main-body{

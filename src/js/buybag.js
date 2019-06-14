@@ -9,33 +9,42 @@ require(['./config'],()=>{
             }
             bind(){
                 this.carlist = JSON.parse(localStorage.getItem('cart'));
-                $("#goodnum").html(this.carlist.length);
+                
                 console.log(this.carlist)
-                if(this.carlist){
-                    $(".nogood").addClass("change");
-                    $(".goodin").removeClass("change");
-                }
-                if(this.carlist==undefined){
+                
+                if(!this.carlist ){
                     console.log(1);
                     $(".nogood").removeClass("change");
                     $(".goodin").addClass("change");
+                }else {
+                    if(this.carlist.length==0){
+                        $(".nogood").removeClass("change");
+                        $(".goodin").addClass("change");
+                    }else{
+                        $(".nogood").addClass("change");
+                        $(".goodin").removeClass("change");
+                        this.addlist();
+                        $("#goodnum").html(this.carlist.length);
+                    }
                 }
                 
-                this.carlist = JSON.parse(localStorage.getItem('cart'));
-                this.addlist();
+                // this.carlist = JSON.parse(localStorage.getItem('cart'));
+                
             }
+            //在页面中加入效果
             addlist(){
                 let _this=this;
                 let arr=[];
-                $("#goodnum").html(this.carlist.length);
-                this.carlist.forEach((good,index)=>{
+                let precar=JSON.parse(localStorage.getItem('cart'));
+                $("#goodnum").html(precar.length);
+                precar.forEach((good,index)=>{
                     $("<li>").html(`
                     <div><input type="checkbox" checked class="checks"></div>
                     <div class="pic"><img src="${good.image}" alt=""></div>
                     <div class="imfor">
                         <p>${good.name}</p>
                         <p>${good.enname}</p>
-                        <p><a  class="delet">删除</a></p>
+                        <p><a class="delet">删除</a></p>
                     </div>
                     <div class="price">￥${good.price}</div>
                     <div class="num">
@@ -80,6 +89,8 @@ require(['./config'],()=>{
                          let precar=JSON.parse(localStorage.getItem('cart'));
                          console.log(precar.length)
                          $("#goodnum").html(precar.length);
+                         $("#buycarvl").html("");
+                         _this.bind();
                          _this.changes();
                     })
                     
@@ -138,6 +149,7 @@ require(['./config'],()=>{
                 })
            
             }
+            //重新计算总价
             changes(){
                 let allmoney=this.allmoney;
                 $(".totle").each((index,item)=>{
