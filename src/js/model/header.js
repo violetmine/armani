@@ -20,6 +20,8 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 //头上的购物袋数量变化
                 let cartlist = localStorage.getItem('cart')
                 if(cartlist){this.cartstyle()}
+                //固定导航
+                this.scrollbe();
             })
         }
         cooki(){
@@ -37,9 +39,9 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 <li> <a href="javascript:;">新品上市</a></li>
                 <li><a href="javascript:;">当季推荐</a></li>
                 <li><a href="javascript:;">全部产品</a></li>
-            </ul>`)
+            </ul>`).css({"display":"none"}).slideDown("slow");
             },()=>{
-                $(".show-box").remove();
+                $(".show-box").slideUp("slow");
             });
             //第二个
             $(".nav .u1 .colormakeup").hover(()=>{
@@ -102,9 +104,9 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                         <a href="/html/detail.html">立即购买</a>
                     </div>
                 </div>
-            </div>`)
+            </div>`).css({"display":"none"}).slideDown(1000)
             },()=>{
-                $(".show-colormakeup").remove();
+                $(".show-colormakeup").slideUp(1000);
             })
         }
         login(){
@@ -125,14 +127,14 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 <p>新用户注册</p>
                 <p>注册成为阿玛尼美妆官网会员，下单流程更流畅，并可查看您的订单记录，追踪订单物流，第一时间获取官网最新资讯.</p>
                 <p><a href="/html/register.html">立即注册</a></p>
-            </div>`)
+            </div>`).css({"display":"none"}).slideDown(1000);
                 $("#loggin").on('click',()=>{
                     this.logg();
                 })
             //如果已经登录
             if($.cookie('useremail')) $('.show-loging').remove();
             },()=>{
-                $('.show-loging').remove();
+                $('.show-loging').slideUp(1000);
             })
 
     }
@@ -166,10 +168,10 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 <p>阿玛尼美妆官网会员权益</p>
                 <p>直击阿玛尼袖长最新妆容，获取潮流美妆技巧，<br>
                     尊奢会员专属礼遇.</p>
-            </div>`)
+            </div>`).css({"display":"none"}).slideDown(1000);
             
             },()=>{
-                $('.show-ordering').remove();
+                $('.show-ordering').slideUp(1000);
             })
             
 
@@ -207,17 +209,17 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                                             </div>
                             {{/each}}
                         </script>
-                </div>`)
+                </div>`).css({"display":"none"}).slideDown();
             //购物袋为空时的请求数据方法
             this.render();
             //如果购物车内有商品
-            let cartlist = localStorage.getItem('cart');
-            if(cartlist){
+            let cartlist = JSON.parse(localStorage.getItem('cart'));
+            if(cartlist !=null && cartlist.length ==0){
                 console.log(1);
                 $('.show-bagingbefore').remove();
             }
             },()=>{
-                $('.show-bagingbefore').remove();
+                $('.show-bagingbefore').slideUp();
             })
         }
         render(){
@@ -266,9 +268,6 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                         $(".link-box").html("");
                         resp.s.forEach((inn)=>{
                             $("<li>").appendTo(".link-box").html(inn);
-                            // $("li").onmousedown=function(){
-                            //     $("#keyword").val()this.html();
-                            // }
                         })
                     
                     $("#keyword").onblur=function(){
@@ -277,14 +276,23 @@ define(['cookie','template','url','jquery'],(cookie,template,url)=>{
                 })
             })
         }
+        //购物车数量变化
         cartstyle(){
             let num=JSON.parse(localStorage.getItem("cart")).length;
-            $("#bagcart").html(`<span>我的购物袋</span> &nbsp;&nbsp; <span id="goodnum">${num}</span>`);
+            if(num!==0){
+                $("#bagcart").html(`<span>我的购物袋</span> &nbsp;&nbsp; <span id="goodnum">${num}</span>`);
+            }
+           
 
         }
         scrollbe(){
             $(window).scroll(()=>{
-                console.log($(document).scrollTop());
+                if($(document).scrollTop()>= 70){
+                    console.log(1)
+                    $(".nav").attr("id","navfix")
+                }else{
+                    $(".nav").removeAttr("id","navfix") ;
+                };
             })
             
         }
